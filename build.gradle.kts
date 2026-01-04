@@ -2,7 +2,6 @@ plugins {
     java
     id("java-library")
     id("maven-publish")
-    id("org.springframework.boot") version "4.0.1"
     id("io.spring.dependency-management") version "1.1.7"
 }
 
@@ -27,18 +26,17 @@ repositories {
 }
 
 dependencies {
-    compileOnly("org.projectlombok:lombok")
-    annotationProcessor("org.projectlombok:lombok")
+    compileOnly("org.projectlombok:lombok:1.18.42")
+    annotationProcessor("org.projectlombok:lombok:1.18.42")
 
-    compileOnly("org.springframework.boot:spring-boot-autoconfigure")
-    compileOnly("org.springframework:spring-context")
-    compileOnly("org.springframework:spring-web")
-    compileOnly("org.springframework:spring-webflux")
-    compileOnly("org.springframework.kafka:spring-kafka")
-    compileOnly("org.springframework.data:spring-data-redis")
+    compileOnly("org.springframework.boot:spring-boot-autoconfigure:4.0.1")
+    compileOnly("org.springframework:spring-context:7.0.2")
+    compileOnly("org.springframework:spring-web:7.0.2")
+    compileOnly("org.springframework:spring-webflux:7.0.2")
+    compileOnly("org.springframework.kafka:spring-kafka:4.0.1")
+    compileOnly("org.springframework.data:spring-data-redis:4.0.1")
 
-    compileOnly("tools.jackson.core:jackson-databind")
-    compileOnly("tools.jackson.core:jackson-core")
+    compileOnly("tools.jackson.core:jackson-databind:3.0.3")
 }
 
 publishing {
@@ -47,12 +45,4 @@ publishing {
             from(components["java"])
         }
     }
-}
-
-tasks.bootJar {
-    enabled = false
-}
-
-tasks.jar {
-    enabled = true
 }
