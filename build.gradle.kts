@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.bravos.steak"
-version = "1.0.1"
+version = "1.0.2"
 description = "common-utils"
 
 java {
