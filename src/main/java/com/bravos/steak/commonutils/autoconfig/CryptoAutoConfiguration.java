@@ -9,12 +9,12 @@ import com.bravos.steak.commonutils.shared.crypto.impl.Hmac512ServiceImpl;
 import com.bravos.steak.commonutils.shared.crypto.impl.JwtServiceImpl;
 import com.bravos.steak.commonutils.shared.crypto.impl.RSAServiceImpl;
 import com.bravos.steak.commonutils.shared.type.GeneralKeyPair;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
-@Configuration
+@AutoConfiguration
 public class CryptoAutoConfiguration {
 
   @ConditionalOnBean({
