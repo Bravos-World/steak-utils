@@ -1,11 +1,11 @@
 plugins {
     java
-    id("org.springframework.boot") version "4.0.1"
-    id("io.spring.dependency-management") version "1.1.7"
+    id("java-library")
+    id("maven-publish")
 }
 
 group = "com.bravos.steak"
-version = "1.0.0"
+version = "1.0.1"
 description = "common-utils"
 
 java {
