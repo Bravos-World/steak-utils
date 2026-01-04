@@ -39,6 +39,14 @@ dependencies {
     implementation("org.springframework.data:spring-data-redis:4.0.1")
 }
 
+publishing {
+    publications {
+        register<MavenPublication>("gpr") {
+            from(components["java"])
+        }
+    }
+}
+
 tasks.bootJar {
     enabled = false
 }
