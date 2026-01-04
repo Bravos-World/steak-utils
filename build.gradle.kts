@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.bravos.steak"
-version = "1.0.4"
+version = "1.0.5"
 description = "common-utils"
 
 java {
@@ -29,14 +29,16 @@ repositories {
 dependencies {
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
-    api("org.springframework.boot:spring-boot-autoconfigure:4.0.1")
-    api("org.springframework:spring-context:7.0.2")
-    api("org.springframework:spring-web:7.0.2")
-    api("org.springframework:spring-webflux:7.0.2")
-    api("tools.jackson.core:jackson-databind:3.0.3")
-    api("tools.jackson.core:jackson-core:3.0.3")
-    api("org.springframework.kafka:spring-kafka:4.0.1")
-    api("org.springframework.data:spring-data-redis:4.0.1")
+
+    compileOnly("org.springframework.boot:spring-boot-autoconfigure")
+    compileOnly("org.springframework:spring-context")
+    compileOnly("org.springframework:spring-web")
+    compileOnly("org.springframework:spring-webflux")
+    compileOnly("org.springframework.kafka:spring-kafka")
+    compileOnly("org.springframework.data:spring-data-redis")
+
+    compileOnly("tools.jackson.core:jackson-databind")
+    compileOnly("tools.jackson.core:jackson-core")
 }
 
 publishing {
