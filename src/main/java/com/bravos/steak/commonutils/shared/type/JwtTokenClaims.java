@@ -31,6 +31,7 @@ public class JwtTokenClaims {
 
   /**
    * Convert to map
+   *
    * @return map representation of the claims
    */
   public Map<String, Object> toMap() {

@@ -21,6 +21,7 @@ public class DefaultObjectMapper {
 
   /**
    * Get the default ObjectMapper instance.
+   *
    * @return the ObjectMapper instance
    */
   public static ObjectMapper get() {

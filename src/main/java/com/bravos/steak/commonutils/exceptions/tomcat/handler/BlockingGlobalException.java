@@ -75,7 +75,7 @@ public class BlockingGlobalException {
 
   @ExceptionHandler(MethodArgumentNotValidException.class)
   public ResponseEntity<ErrorResponse> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
-    Map<String,String> errors = ex.getBindingResult()
+    Map<String, String> errors = ex.getBindingResult()
         .getFieldErrors()
         .stream()
         .collect(Collectors.toMap(

@@ -19,7 +19,7 @@ public final class Snowflake {
   private static final long MACHINE_ID_SHIFT = SEQUENCE_BITS + TIME_STAMP_BITS;
   private static final long TIMESTAMP_SHIFT = SEQUENCE_BITS;
 
-  private static final long DEFAULT_EPOCH = LocalDateTime.of(2025,1,1,0,0).toInstant(ZoneOffset.UTC).toEpochMilli();
+  private static final long DEFAULT_EPOCH = LocalDateTime.of(2025, 1, 1, 0, 0).toInstant(ZoneOffset.UTC).toEpochMilli();
 
   private static final long SEQUENCE_MASK = (1L << SEQUENCE_BITS) - 1;
 
@@ -34,7 +34,7 @@ public final class Snowflake {
 
   public Snowflake(long machineId, long customEpoch) {
     this.epoch = customEpoch;
-    if(machineId < 0 || ((machineId > (1L << MACHINE_ID_BITS) - 1))) {
+    if (machineId < 0 || ((machineId > (1L << MACHINE_ID_BITS) - 1))) {
       throw new IllegalArgumentException("Machine ID must be between 0 and " + ((1L << MACHINE_ID_BITS) - 1));
     }
     this.machineId = machineId;
@@ -50,20 +50,20 @@ public final class Snowflake {
 
   /**
    * Generates the next unique ID.
+   *
    * @return A unique long ID.
    */
   public synchronized long next() {
     long currentTimestamp = DateTimeHelper.currentTimeMillis();
-    if(currentTimestamp < lastTimestamp) {
+    if (currentTimestamp < lastTimestamp) {
       throw new IllegalStateException("Clock moved backwards. Refusing to generate id for " +
           (lastTimestamp - currentTimestamp) + " milliseconds");
     }
     long timestamp = currentTimestamp - epoch;
-    if(currentTimestamp != lastTimestamp) {
+    if (currentTimestamp != lastTimestamp) {
       sequence = 0L;
       lastTimestamp = currentTimestamp;
-    }
-    else if(sequence >= SEQUENCE_MASK) {
+    } else if (sequence >= SEQUENCE_MASK) {
       long nextMillis = waitForNextMillis();
       timestamp = nextMillis - epoch;
       sequence = 0L;
@@ -78,6 +78,7 @@ public final class Snowflake {
 
   /**
    * Extracts the timestamp from a given ID.
+   *
    * @param id The unique long ID.
    * @return The extracted timestamp in milliseconds since epoch.
    */
@@ -88,6 +89,7 @@ public final class Snowflake {
 
   /**
    * Extracts the machine ID from a given ID.
+   *
    * @param id The unique long ID.
    * @return The extracted machine ID.
    */

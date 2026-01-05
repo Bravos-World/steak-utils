@@ -74,7 +74,7 @@ public class ReactiveExceptionHandler {
 
   @ExceptionHandler(WebExchangeBindException.class)
   public Mono<ResponseEntity<ErrorResponse>> handleWebExchangeBindException(WebExchangeBindException ex) {
-    Map<String,String> errors = ex.getBindingResult()
+    Map<String, String> errors = ex.getBindingResult()
         .getFieldErrors()
         .stream()
         .collect(Collectors.toMap(

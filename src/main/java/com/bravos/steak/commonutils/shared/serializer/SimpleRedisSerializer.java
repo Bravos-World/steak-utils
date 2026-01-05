@@ -31,7 +31,7 @@ public class SimpleRedisSerializer implements RedisSerializer<Object> {
   @Override
   @NullMarked
   public byte[] serialize(@Nullable Object value) throws SerializationException {
-    if(value == null) return new byte[0];
+    if (value == null) return new byte[0];
 
     byte type;
     byte[] data;
@@ -84,7 +84,7 @@ public class SimpleRedisSerializer implements RedisSerializer<Object> {
 
   @Override
   public @Nullable Object deserialize(byte @Nullable [] bytes) throws SerializationException {
-    if(bytes == null || bytes.length == 0) return null;
+    if (bytes == null || bytes.length == 0) return null;
     RedisValueType type = RedisValueType.fromCode(bytes[0]);
     byte[] data = new byte[bytes.length - 1];
     System.arraycopy(bytes, 1, data, 0, data.length);

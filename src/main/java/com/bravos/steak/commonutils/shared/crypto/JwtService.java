@@ -7,6 +7,7 @@ public interface JwtService {
 
   /**
    * Generate JWT token from claims
+   *
    * @param jwtTokenClaims the claims to be included in the token
    * @return the generated JWT token
    */
@@ -14,6 +15,7 @@ public interface JwtService {
 
   /**
    * Extract claims from JWT token
+   *
    * @param token the JWT token
    * @return the extracted claims
    */

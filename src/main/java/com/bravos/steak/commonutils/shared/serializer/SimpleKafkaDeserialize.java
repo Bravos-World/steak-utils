@@ -21,7 +21,7 @@ public class SimpleKafkaDeserialize implements Deserializer<Object> {
 
   @Override
   public Object deserialize(String topic, Headers headers, byte[] data) {
-    if(headers.headers("x-bytes").iterator().hasNext()) {
+    if (headers.headers("x-bytes").iterator().hasNext()) {
       return data;
     }
     return objectMapper.readValue(data, Object.class);

@@ -29,7 +29,7 @@ public interface AesEncryptionService {
    * Decrypts the given encrypted text using AES decryption with the provided secret key.
    *
    * @param encryptedText the text to be decrypted
-   * @param secretKey the secret key used for decryption
+   * @param secretKey     the secret key used for decryption
    * @return the decrypted plain text
    */
   String decrypt(String encryptedText, String secretKey);
@@ -38,7 +38,7 @@ public interface AesEncryptionService {
    * Decrypts the given encrypted text using AES decryption with the provided SecretKey.
    *
    * @param encryptedText the text to be decrypted
-   * @param secretKey the SecretKey used for decryption
+   * @param secretKey     the SecretKey used for decryption
    * @return the decrypted plain text
    */
   String decrypt(String encryptedText, SecretKey secretKey);

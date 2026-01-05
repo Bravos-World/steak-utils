@@ -21,9 +21,9 @@ public class SimpleKafkaSerialize implements Serializer<Object> {
 
   @Override
   public byte[] serialize(String topic, Headers headers, Object data) {
-    if(data == null) return null;
+    if (data == null) return null;
     if (data instanceof byte[] bytes) {
-      headers.add("x-bytes", new byte[] {1});
+      headers.add("x-bytes", new byte[]{1});
       return bytes;
     }
     return objectMapper.writeValueAsBytes(data);

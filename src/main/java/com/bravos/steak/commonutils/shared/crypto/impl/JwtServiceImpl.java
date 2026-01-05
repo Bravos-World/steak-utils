@@ -38,6 +38,9 @@ public class JwtServiceImpl implements JwtService {
 
   @Override
   public String generateToken(JwtTokenClaims jwtTokenClaims) {
+    if (generalKeyPair == null || generalKeyPair.getPrivateKey() == null) {
+      throw new UnsupportedOperationException("JWT generation is not supported. Missing private key.");
+    }
     try {
       StringBuilder token = new StringBuilder(1024);
 
@@ -58,29 +61,24 @@ public class JwtServiceImpl implements JwtService {
 
   @Override
   public JwtTokenClaims getClaims(String token) {
+    if (generalKeyPair == null || generalKeyPair.getPublicKey() == null) {
+      throw new UnsupportedOperationException("JWT validation is not supported. Missing public key.");
+    }
+    if (token == null || token.isBlank()) {
+      throw new UnauthorizeException("Token is invalid");
+    }
     String[] parts = token.split("\\.");
-
     if (parts.length != 3) {
       throw new UnauthorizeException("Token is invalid");
     }
-
-    if (!rSAService.verifyData(parts[0] + "." + parts[1], parts[2],
-        generalKeyPair.getPublicKey())) {
+    if (!rSAService.verifyData(parts[0] + "." + parts[1], parts[2], generalKeyPair.getPublicKey())) {
       throw new UnauthorizeException("Token is invalid");
     }
-
-    JwtTokenClaims payload;
-    payload = objectMapper.readValue(
-        Base64.getUrlDecoder().decode(parts[1]),
-        JwtTokenClaims.class
-    );
-
+    JwtTokenClaims payload = objectMapper.readValue(Base64.getUrlDecoder().decode(parts[1]), JwtTokenClaims.class);
     long now = DateTimeHelper.currentTimeMillis();
-
     if (payload == null || payload.getExp() < now || payload.getIat() > now) {
       throw new UnauthorizeException("Token is expired or not yet valid");
     }
-
     return payload;
   }
 

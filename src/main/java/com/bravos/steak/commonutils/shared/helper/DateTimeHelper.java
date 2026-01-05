@@ -15,6 +15,7 @@ public class DateTimeHelper {
 
   /**
    * Converts epoch milliseconds to an Instant.
+   *
    * @param epochMillis The epoch milliseconds to convert.
    * @return An Instant representing the given epoch milliseconds.
    */
@@ -24,6 +25,7 @@ public class DateTimeHelper {
 
   /**
    * Converts epoch milliseconds to a LocalDateTime in the system's default time zone.
+   *
    * @param epochMillis The epoch milliseconds to convert.
    * @return A LocalDateTime representing the given epoch milliseconds in the system's default time zone.
    */
@@ -33,6 +35,7 @@ public class DateTimeHelper {
 
   /**
    * Converts epoch milliseconds to an OffsetDateTime in UTC. Offset date-time is a date-time with an offset from UTC/Greenwich.
+   *
    * @param epochMillis The epoch milliseconds to convert.
    * @return An OffsetDateTime representing the given epoch milliseconds in UTC.
    */
@@ -42,6 +45,7 @@ public class DateTimeHelper {
 
   /**
    * Converts epoch milliseconds to a ZonedDateTime in the system's default time zone.
+   *
    * @param epochMillis The epoch milliseconds to convert.
    * @return A ZonedDateTime representing the given epoch milliseconds in the system's default time zone.
    */
@@ -51,6 +55,7 @@ public class DateTimeHelper {
 
   /**
    * Converts epoch milliseconds to a Date.
+   *
    * @param epochMillis The epoch milliseconds to convert.
    * @return A Date representing the given epoch milliseconds.
    */
@@ -60,6 +65,7 @@ public class DateTimeHelper {
 
   /**
    * Converts epoch milliseconds to an ISO 8601 formatted string in UTC.
+   *
    * @param epochMillis The epoch milliseconds to convert.
    * @return A string representing the given epoch milliseconds in ISO 8601 format in UTC.
    */
@@ -69,6 +75,7 @@ public class DateTimeHelper {
 
   /**
    * Converts an Instant to epoch milliseconds.
+   *
    * @param instant The Instant to convert.
    * @return The epoch milliseconds representing the given Instant.
    */
@@ -78,6 +85,7 @@ public class DateTimeHelper {
 
   /**
    * Converts a LocalDateTime in the system's default time zone to epoch milliseconds.
+   *
    * @param localDateTime The LocalDateTime to convert.
    * @return The epoch milliseconds representing the given LocalDateTime.
    */
@@ -87,6 +95,7 @@ public class DateTimeHelper {
 
   /**
    * Converts a ZonedDateTime to epoch milliseconds.
+   *
    * @param zonedDateTime The ZonedDateTime to convert.
    * @return The epoch milliseconds representing the given ZonedDateTime.
    */
@@ -96,6 +105,7 @@ public class DateTimeHelper {
 
   /**
    * Converts an OffsetDateTime to epoch milliseconds.
+   *
    * @param offsetDateTime The OffsetDateTime to convert.
    * @return The epoch milliseconds representing the given OffsetDateTime.
    */
@@ -105,6 +115,7 @@ public class DateTimeHelper {
 
   /**
    * Converts a Date to epoch milliseconds.
+   *
    * @param date The Date to convert.
    * @return The epoch milliseconds representing the given Date.
    */
@@ -114,6 +125,7 @@ public class DateTimeHelper {
 
   /**
    * Gets the current time in epoch milliseconds.
+   *
    * @return The current time in epoch milliseconds.
    */
   public static long currentTimeMillis() {
@@ -122,6 +134,7 @@ public class DateTimeHelper {
 
   /**
    * Converts an ISO 8601 formatted string to epoch milliseconds.
+   *
    * @param isoString The ISO 8601 formatted string to convert.
    * @return The epoch milliseconds representing the given ISO 8601 formatted string.
    */
@@ -131,6 +144,7 @@ public class DateTimeHelper {
 
   /**
    * Gets the current LocalDateTime in the system's default time zone.
+   *
    * @return The current LocalDateTime.
    */
   public static LocalDateTime now() {
@@ -139,6 +153,7 @@ public class DateTimeHelper {
 
   /**
    * Gets the system's default time zone.
+   *
    * @return The default ZoneId.
    */
   public static ZoneId getDefaultZone() {

@@ -15,7 +15,7 @@ public class BlockingExceptionConfig {
       if (applicationContext.getBeanNamesForType(reactiveConfigClass).length > 0) {
         throw new IllegalStateException(
             "Cannot enable both @EnableBlockingGlobalException and @EnableWebFluxGlobalException. " +
-            "Please use only one exception handler type (blocking for Tomcat or reactive for Netty/WebFlux)."
+                "Please use only one exception handler type (blocking for Tomcat or reactive for Netty/WebFlux)."
         );
       }
     } catch (ClassNotFoundException e) {
