@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.bravos.steak"
-version = "1.0.7"
+version = "1.0.8"
 description = "common-utils"
 
 java {
@@ -31,12 +31,14 @@ dependencies {
 
     api("org.springframework.boot:spring-boot-autoconfigure:4.0.1")
     api("org.springframework:spring-context:7.0.2")
-    api("org.springframework:spring-web:7.0.2")
-    api("org.springframework:spring-webflux:7.0.2")
+
+    implementation("org.springframework:spring-web:7.0.2")
+    implementation("org.springframework:spring-webflux:7.0.2")
 
     implementation("org.springframework.kafka:spring-kafka:4.0.1")
     implementation("org.springframework.data:spring-data-redis:4.0.1")
-    implementation("tools.jackson.core:jackson-databind:3.0.3")
+
+    api("tools.jackson.core:jackson-databind:3.0.3")
 }
 
 publishing {
