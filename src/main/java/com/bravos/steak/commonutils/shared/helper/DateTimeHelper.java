@@ -129,7 +129,7 @@ public class DateTimeHelper {
    * @return The current time in epoch milliseconds.
    */
   public static long currentTimeMillis() {
-    return Instant.now().atZone(DEFAULT_ZONE).toInstant().toEpochMilli();
+    return System.currentTimeMillis();
   }
 
   /**

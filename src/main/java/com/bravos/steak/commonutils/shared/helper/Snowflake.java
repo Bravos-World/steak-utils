@@ -56,8 +56,16 @@ public final class Snowflake {
   public synchronized long next() {
     long currentTimestamp = DateTimeHelper.currentTimeMillis();
     if (currentTimestamp < lastTimestamp) {
-      throw new IllegalStateException("Clock moved backwards. Refusing to generate id for " +
-          (lastTimestamp - currentTimestamp) + " milliseconds");
+      if(lastTimestamp - currentTimestamp > 500) {
+        throw new IllegalStateException("Clock moved backwards. Refusing to generate id for " +
+            (lastTimestamp - currentTimestamp) + " milliseconds");
+      }
+      try {
+        Thread.sleep(lastTimestamp - currentTimestamp + 2);
+      } catch (InterruptedException e) {
+        throw new RuntimeException(e);
+      }
+      currentTimestamp = DateTimeHelper.currentTimeMillis();
     }
     long timestamp = currentTimestamp - epoch;
     if (currentTimestamp != lastTimestamp) {

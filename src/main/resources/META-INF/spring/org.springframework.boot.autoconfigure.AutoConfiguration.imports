@@ -1,2 +1,3 @@
 com.bravos.steak.commonutils.autoconfig.CryptoAutoConfiguration
 com.bravos.steak.commonutils.autoconfig.ObjectMapperConfiguration
+com.bravos.steak.commonutils.autoconfig.JwtAutoConfiguration
