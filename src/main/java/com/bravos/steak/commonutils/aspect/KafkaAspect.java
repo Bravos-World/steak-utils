@@ -8,6 +8,11 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import tools.jackson.databind.ObjectMapper;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+
 @Aspect
 @RequiredArgsConstructor
 public class KafkaAspect {
@@ -20,9 +25,24 @@ public class KafkaAspect {
     MethodSignature methodSignature = (MethodSignature) pjp.getSignature();
     Class<?>[] parameterTypes = methodSignature.getParameterTypes();
     for(int i = 0; i < args.length; i++) {
-      if(args[i] == null) continue;
-      if(args[i] instanceof ObjectType(byte[] data)) {
-        args[i] = objectMapper.readValue(data, parameterTypes[i]);
+      switch (args[i]) {
+        case ObjectType(byte[] data) -> args[i] = objectMapper.readValue(data, parameterTypes[i]);
+        case Iterable<?> iterable -> {
+          Type type = methodSignature.getMethod().getGenericParameterTypes()[i];
+          Type actualTypeArgument = ((ParameterizedType) type).getActualTypeArguments()[0];
+          List<Object> deserializedList = new ArrayList<>();
+          for (Object item : iterable) {
+            if (item instanceof ObjectType(byte[] bytes)) {
+              Object deserializedItem = objectMapper.readValue(bytes, objectMapper.constructType(actualTypeArgument));
+              deserializedList.add(deserializedItem);
+            } else {
+              deserializedList.add(item);
+            }
+          }
+          args[i] = deserializedList;
+        }
+        default -> {
+        }
       }
     }
     try {
