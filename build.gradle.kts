@@ -37,6 +37,7 @@ dependencies {
 
     implementation("org.springframework.kafka:spring-kafka:4.0.1")
     implementation("org.springframework.data:spring-data-redis:4.0.1")
+    implementation("org.springframework.boot:spring-boot-starter-aop:3.5.9")
 
     api("tools.jackson.core:jackson-databind:3.0.3")
 }

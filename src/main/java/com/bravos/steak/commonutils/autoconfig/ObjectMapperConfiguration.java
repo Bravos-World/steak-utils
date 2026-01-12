@@ -9,8 +9,8 @@ import tools.jackson.databind.ObjectMapper;
 @AutoConfiguration
 public class ObjectMapperConfiguration {
 
-  @ConditionalOnMissingBean(ObjectMapper.class)
   @Bean
+  @ConditionalOnMissingBean(ObjectMapper.class)
   public ObjectMapper objectMapper() {
     return DefaultObjectMapper.get();
   }
