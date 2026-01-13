@@ -11,8 +11,15 @@ public class ErrorResponse {
 
   private String detail;
 
+  private String code;
+
   public ErrorResponse(String detail) {
     this.detail = detail;
+  }
+
+  public ErrorResponse(String detail, String code) {
+    this.detail = detail;
+    this.code = code;
   }
 
 }
