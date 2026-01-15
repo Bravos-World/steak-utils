@@ -1,6 +1,6 @@
-package com.bravos.steak.commonutils.exceptions.tomcat.enable;
+package com.bravos.steak.commonutils.exceptions.enable;
 
-import com.bravos.steak.commonutils.exceptions.tomcat.configuration.BlockingExceptionConfig;
+import com.bravos.steak.commonutils.exceptions.configuration.BlockingExceptionConfig;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.ElementType;

@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.bravos.steak"
-version = "1.1.3"
+version = "1.1.4"
 description = "common-utils"
 
 java {
@@ -33,13 +33,10 @@ dependencies {
     api("org.springframework:spring-context:7.0.2")
 
     implementation("org.springframework:spring-web:7.0.2")
-    implementation("org.springframework:spring-webflux:7.0.2")
-
-    implementation("org.springframework.kafka:spring-kafka:4.0.1")
     implementation("org.springframework.data:spring-data-redis:4.0.1")
-    implementation("org.springframework.boot:spring-boot-starter-aop:3.5.9")
 
     api("tools.jackson.core:jackson-databind:3.0.3")
+    implementation("io.lettuce:lettuce-core:7.2.1.RELEASE")
 }
 
 publishing {

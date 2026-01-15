@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Bean;
 public class JwtAutoConfiguration {
 
   @Bean
-  @ConditionalOnBean(RSAService.class)
+  @ConditionalOnBean({RSAService.class, GeneralKeyPair.class})
   @ConditionalOnMissingBean(JwtService.class)
   public JwtService jwtService(RSAService rsaService, GeneralKeyPair generalKeyPair) {
     return new JwtServiceImpl(rsaService, generalKeyPair);
